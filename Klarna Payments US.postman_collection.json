@@ -1,0 +1,552 @@
+{
+	"info": {
+		"_postman_id": "c5806887-6886-4618-994c-3d29934c2cba",
+		"name": "Klarna Payments US",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Session",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "uEWwK2Ziu2pZKdk1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "N104701_f720721d7d66",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"locale\": \"en-US\",\n  \"purchase_country\": \"US\",\n  \"purchase_currency\": \"USD\",\n  \"merchant_reference1\": \"Klarna_testOrder\",\n  \"order_amount\": 25000,\n  \"order_tax_amount\": 6000,\n  \"order_lines\": [\n    {\n      \"reference\": \"klarna-test\",\n      \"quantity\": 1,\n      \"unit_price\": 20000,\n      \"image_url\": \"https://ss7.vzw.com/is/image/VerizonWireless/fitbit-versa-2-versa-2-se-smartwatches-black-carbon-a-fb507bkbk\",\n      \"total_amount\": 19000,\n      \"total_discount_amount\": 1000,\n      \"type\": \"physical\",\n      \"product_url\": \"https://www.klarna.com/example/widget1=prod\",\n      \"name\": \"FitBit Versa 2\"\n    },\n    {\n      \"quantity\": 1,\n      \"total_amount\": 6000,\n      \"type\": \"sales_tax\",\n      \"name\": \"Tax\",\n      \"unit_price\": 6000\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-na.playground.klarna.com/payments/v1/sessions",
+					"protocol": "https",
+					"host": [
+						"api-na",
+						"playground",
+						"klarna",
+						"com"
+					],
+					"path": [
+						"payments",
+						"v1",
+						"sessions"
+					]
+				},
+				"description": "A Klarna Payments session is created by you as a merchant."
+			},
+			"response": []
+		},
+		{
+			"name": "Create a New Order",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "uEWwK2Ziu2pZKdk1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "N104701_f720721d7d66",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"billing_address\": {\n        \"city\": \"Beverly Hills\",\n        \"country\": \"US\",\n        \"email\": \"john@doe.com\",\n        \"family_name\": \"Doe\",\n        \"given_name\": \"John\",\n        \"phone\": \"3334445555\",\n        \"postal_code\": \"90210\",\n        \"region\": \"CA\",\n        \"street_address\": \"Lombard St 10\",\n        \"street_address2\": \"Apt 214\",\n        \"title\": \"Mr.\"\n        },\n  \"shipping_address\": {\n        \"city\": \"Beverly Hills\",\n        \"country\": \"US\",\n        \"email\": \"john@doe.com\",\n        \"family_name\": \"Doe\",\n        \"given_name\": \"John\",\n        \"phone\": \"3334445555\",\n        \"postal_code\": \"90210\",\n        \"region\": \"CA\",\n        \"street_address\": \"Lombard St 10\",\n        \"street_address2\": \"Apt 214\",\n        \"title\": \"Mr.\"\n        },\n  \"locale\": \"en-US\",\n  \"purchase_country\": \"US\",\n  \"purchase_currency\": \"USD\",\n  \"merchant_reference1\": \"Klarna_testOrder\",\n  \"order_amount\": 25000,\n  \"order_tax_amount\": 6000,\n  \"order_lines\": [\n    {\n      \"reference\": \"klarna-test\",\n      \"quantity\": 1,\n      \"unit_price\": 20000,\n      \"image_url\": \"https://ss7.vzw.com/is/image/VerizonWireless/fitbit-versa-2-versa-2-se-smartwatches-black-carbon-a-fb507bkbk\",\n      \"total_amount\": 19000,\n      \"total_discount_amount\": 1000,\n      \"type\": \"physical\",\n      \"product_url\": \"https://www.klarna.com/example/widget1=prod\",\n      \"name\": \"FitBit Versa 2\"\n    },\n    {\n      \"quantity\": 1,\n      \"total_amount\": 6000,\n      \"type\": \"sales_tax\",\n      \"name\": \"Tax\",\n      \"unit_price\": 6000\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-na.playground.klarna.com/payments/v1/authorizations/77b9f2f8-fb19-4f3b-a79e-b7fb2d1ca00b/order",
+					"protocol": "https",
+					"host": [
+						"api-na",
+						"playground",
+						"klarna",
+						"com"
+					],
+					"path": [
+						"payments",
+						"v1",
+						"authorizations",
+						"77b9f2f8-fb19-4f3b-a79e-b7fb2d1ca00b",
+						"order"
+					]
+				},
+				"description": "A Klarna Payments session is created by you as a merchant."
+			},
+			"response": []
+		},
+		{
+			"name": "Capture Order",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "uEWwK2Ziu2pZKdk1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "N104701_f720721d7d66",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"captured_amount\": 25000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-na.playground.klarna.com/ordermanagement/v1/orders/73a99524-734b-4e21-8522-ae7e8e9b1912/captures",
+					"protocol": "https",
+					"host": [
+						"api-na",
+						"playground",
+						"klarna",
+						"com"
+					],
+					"path": [
+						"ordermanagement",
+						"v1",
+						"orders",
+						"73a99524-734b-4e21-8522-ae7e8e9b1912",
+						"captures"
+					]
+				},
+				"description": "A Klarna Payments session is created by you as a merchant."
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Order",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "uEWwK2Ziu2pZKdk1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "N104701_f720721d7d66",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-na.playground.klarna.com/ordermanagement/v1/orders/13997eb0-a087-4d2e-bbfd-df5ed9e6fcad/cancel",
+					"protocol": "https",
+					"host": [
+						"api-na",
+						"playground",
+						"klarna",
+						"com"
+					],
+					"path": [
+						"ordermanagement",
+						"v1",
+						"orders",
+						"13997eb0-a087-4d2e-bbfd-df5ed9e6fcad",
+						"cancel"
+					]
+				},
+				"description": "A Klarna Payments session is created by you as a merchant."
+			},
+			"response": []
+		},
+		{
+			"name": "Refund Order",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "uEWwK2Ziu2pZKdk1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "N104701_f720721d7d66",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refunded_amount\": 25000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-na.playground.klarna.com/ordermanagement/v1/orders/73a99524-734b-4e21-8522-ae7e8e9b1912/refunds",
+					"protocol": "https",
+					"host": [
+						"api-na",
+						"playground",
+						"klarna",
+						"com"
+					],
+					"path": [
+						"ordermanagement",
+						"v1",
+						"orders",
+						"73a99524-734b-4e21-8522-ae7e8e9b1912",
+						"refunds"
+					]
+				},
+				"description": "A Klarna Payments session is created by you as a merchant."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Session",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "uEWwK2Ziu2pZKdk1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "N104701_f720721d7d66",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-na.playground.klarna.com/payments/v1/sessions/1eb6f4f6-1dbd-4f00-8702-8750cc4d2239",
+					"protocol": "https",
+					"host": [
+						"api-na",
+						"playground",
+						"klarna",
+						"com"
+					],
+					"path": [
+						"payments",
+						"v1",
+						"sessions",
+						"1eb6f4f6-1dbd-4f00-8702-8750cc4d2239"
+					]
+				},
+				"description": "A Klarna Payments session is created by you as a merchant."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "uEWwK2Ziu2pZKdk1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "N104701_f720721d7d66",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-na.playground.klarna.com/ordermanagement/v1/orders/13997eb0-a087-4d2e-bbfd-df5ed9e6fcad",
+					"protocol": "https",
+					"host": [
+						"api-na",
+						"playground",
+						"klarna",
+						"com"
+					],
+					"path": [
+						"ordermanagement",
+						"v1",
+						"orders",
+						"13997eb0-a087-4d2e-bbfd-df5ed9e6fcad"
+					]
+				},
+				"description": "A Klarna Payments session is created by you as a merchant."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Refund",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "uEWwK2Ziu2pZKdk1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "N104701_f720721d7d66",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-na.playground.klarna.com/ordermanagement/v1/orders/73a99524-734b-4e21-8522-ae7e8e9b1912/refunds/4f9a80d3-59ea-40c5-87fc-afcb88f4f9f4",
+					"protocol": "https",
+					"host": [
+						"api-na",
+						"playground",
+						"klarna",
+						"com"
+					],
+					"path": [
+						"ordermanagement",
+						"v1",
+						"orders",
+						"73a99524-734b-4e21-8522-ae7e8e9b1912",
+						"refunds",
+						"4f9a80d3-59ea-40c5-87fc-afcb88f4f9f4"
+					]
+				},
+				"description": "A Klarna Payments session is created by you as a merchant."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Capture",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "uEWwK2Ziu2pZKdk1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "N104701_f720721d7d66",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-na.playground.klarna.com/ordermanagement/v1/orders/73a99524-734b-4e21-8522-ae7e8e9b1912/captures/4632d440-d9b3-4925-92ba-6869071a4080",
+					"protocol": "https",
+					"host": [
+						"api-na",
+						"playground",
+						"klarna",
+						"com"
+					],
+					"path": [
+						"ordermanagement",
+						"v1",
+						"orders",
+						"73a99524-734b-4e21-8522-ae7e8e9b1912",
+						"captures",
+						"4632d440-d9b3-4925-92ba-6869071a4080"
+					]
+				},
+				"description": "A Klarna Payments session is created by you as a merchant."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
